@@ -1,6 +1,6 @@
 import { CDN_URL } from "../utils/constant";
 
-const RestrauntCard = (props) => {
+const RestaurantCard = (props) => {
   const { resData } = props;
   const {
     cloudinaryImageId,
@@ -15,9 +15,7 @@ const RestrauntCard = (props) => {
       <img
         className="res-logo"
         alt="image"
-        src={CDN_URL
-           +
-          resData.info.cloudinaryImageId
+        src={CDN_URL + resData.info.cloudinaryImageId
         }
       ></img>
       <h3>{name}</h3>
@@ -29,4 +27,4 @@ const RestrauntCard = (props) => {
   );
 };
 
-export default RestrauntCard;
+export default RestaurantCard;
