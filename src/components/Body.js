@@ -28,25 +28,26 @@ const Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-  
+
   const onlineStatus = useOnlineStatus();
-  if (onlineStatus === false) return <h2>Please Check Your Network Connection 😭</h2>;
+  if (onlineStatus === false)
+    return <h2>Please Check Your Network Connection 😭</h2>;
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="body ">
+      <div className="filter flex pl-7">
+        <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           ></input>
-          <button
+          <button className=" m-4 px-4 py-1 bg-green-300 rounded-lg"
             onClick={() => {
               const filteredRestaurants = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -57,8 +58,9 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
+        <div className="m-4 p-4 flex items-center">
+          <button
+          className="px-4 py-1 bg-gray-100 rounded-lg" 
           onClick={() => {
             const filteredList = filteredRestaurants.filter(
               (res) => res.info.avgRating > 4.5
@@ -68,8 +70,9 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="res-container flex flex-wrap justify-center">
         {filteredRestaurants.map((restaurant) => (
           <Link
             key={restaurant.info.id}
