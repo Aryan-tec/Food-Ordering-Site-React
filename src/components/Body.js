@@ -1,8 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -13,7 +14,6 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log("Page Rendered");
 
   const fetchData = async () => {
     const data = await fetch(
@@ -22,12 +22,14 @@ const Body = () => {
     const json = await data.json();
     //optional chaining
     setListOfRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
@@ -37,7 +39,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body ">
-      <div className="filter flex pl-7">
+      <div className="filter flex pl-10">
         <div className="search m-4 p-4">
           <input
             type="text"
@@ -47,7 +49,8 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           ></input>
-          <button className=" m-4 px-4 py-1 bg-green-300 rounded-lg"
+          <button
+            className=" m-4 px-4 py-1 bg-green-300 rounded-lg cursor-pointer"
             onClick={() => {
               const filteredRestaurants = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -60,19 +63,28 @@ const Body = () => {
         </div>
         <div className="m-4 p-4 flex items-center">
           <button
-          className="px-4 py-1 bg-gray-100 rounded-lg" 
-          onClick={() => {
-            const filteredList = filteredRestaurants.filter(
-              (res) => res.info.avgRating > 4.5
-            );
-            setFilteredRestaurants(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+            className="px-4 py-1 bg-gray-100 rounded-lg cursor-pointer"
+            onClick={() => {
+              const filteredList = filteredRestaurants.filter(
+                (res) => res.info.avgRating > 4.5
+              );
+              setFilteredRestaurants(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+        <div className="m-4 p-4 flex items-center">
+          <label>User : </label>{" "}
+          <input
+            className="border border-black p-1"
+            value={loggedInUser}
+            onChange={(e) => setUserName (e.target.value)}
+          ></input>
         </div>
       </div>
-      <div className="res-container flex flex-wrap justify-center">
+
+      <div className="res-container flex flex-wrap m-10">
         {filteredRestaurants.map((restaurant) => (
           <Link
             key={restaurant.info.id}

@@ -9,24 +9,25 @@ class UserClass extends React.Component {
         location: "dummy loc",
       },
     };
-    console.log("Child Constructor");
+    // console.log("Child Constructor");
   }
 
   async componentDidMount() {
-    console.log("Child componentDidMount");
+    // console.log("Child componentDidMount");
     const data = await fetch("https://api.github.com/users/Aryan-tec");
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     this.setState({
       userInfo: json,
     });
   }
 
   render() {
-    console.log("Child Render");
+    // console.log("Child Render");
     const { name, location, avatar_url } = this.state.userInfo;
     return (
       <div className="user-card">
+        
         <img src="https://avatars.githubusercontent.com/u/77693306?v=4"></img>
         <h2>Name : {name}</h2>
         <h3>Location : {location}</h3>
