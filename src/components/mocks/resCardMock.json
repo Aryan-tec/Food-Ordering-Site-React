@@ -1,0 +1,79 @@
+{
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    "info": {
+        "id": "577703",
+        "name": "Chinese Wok",
+        "cloudinaryImageId": "e0839ff574213e6f35b3899ebf1fc597",
+        "locality": "Sector 3",
+        "areaName": "Signature Global Mall",
+        "costForTwo": "₹250 for two",
+        "cuisines": [
+            "Chinese",
+            "Asian",
+            "Tibetan",
+            "Desserts"
+        ],
+        "avgRating": 4.1,
+        "parentId": "61955",
+        "avgRatingString": "4.1",
+        "totalRatingsString": "1.9K+",
+        "sla": {
+            "deliveryTime": 23,
+            "lastMileTravel": 0.7,
+            "serviceability": "SERVICEABLE",
+            "slaString": "20-25 mins",
+            "lastMileTravelString": "0.7 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-08-24 01:00:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹129"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-bfd0764c-406e-486d-a8e2-e6f4d176fb62"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/noida/chinese-wok-sector-3-signature-global-mall-rest577703",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

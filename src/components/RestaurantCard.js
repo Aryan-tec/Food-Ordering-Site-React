@@ -15,7 +15,7 @@ const RestaurantCard = (props) => {
 
   const {loggedInUser}= useContext(UserContext);
   return (
-    <div className="m-4 p-4 w-[250px] rounded-lg shadow-lg bg-gray-100 "  >
+    <div data-testid="resCard" className="m-4 p-4 w-[250px] rounded-lg shadow-lg bg-gray-100 "  >
       <img
         className="res-logo rounded-lg"
         alt="image"
