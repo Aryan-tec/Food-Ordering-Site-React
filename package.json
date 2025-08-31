@@ -4,8 +4,8 @@
   "description": "This is Namaste react",
   "scripts": {
     "start": "parcel index.html",
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "parcel src/index.html", 
+    "build": "parcel build src/index.html --public-url /Food-Ordering-Site-React/",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

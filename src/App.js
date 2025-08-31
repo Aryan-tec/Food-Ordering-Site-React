@@ -62,7 +62,7 @@ const appRouter = createBrowserRouter(
       errorElement: <Error />,
     },
   ],
-  { basename: "/Food-Ordering-Site-React" }
+  // { basename: "/Food-Ordering-Site-React" }
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
